@@ -12,7 +12,7 @@ export default function Home() {
 
 	return (
 		<main className='bg-[var(--background-body)] text-[var(--foreground)] w-full h-full flex items-center justify-center'>
-			<div className='-translate-y-[30px]'>
+			<div>
 				<svg
 					width='200'
 					height='153'

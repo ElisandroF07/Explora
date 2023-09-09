@@ -1,4 +1,4 @@
-export default function Card2() {
+export default function Card3() {
 	return (
 		<div className='card w-full h-full flex flex-col items-center justify-center'>
 			<div className='-translate-y-[30px]'>

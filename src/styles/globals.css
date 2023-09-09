@@ -85,6 +85,7 @@ div.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dyn
   stroke-width: 1px;
 }
 
+
 @keyframes dash {
   to {
     stroke-dashoffset: 1000;
