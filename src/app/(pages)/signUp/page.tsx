@@ -10,10 +10,10 @@ export default function SignUp() {
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
-	const easyRegEx = /^[a-zA-Z0-9]{1,5}$/;
+	const easyRegEx = /^[a-zA-Z0-9]{1,20}$/;
 	const mediumRegEx = /^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{5,20}$/;
 	const strongRegEx =
-		/^(?=.*[@!#$%^&*()/\\])(?=.*[0-9])(?=.*[a-zA-Z])[@!#$%^&*()/\\a-zA-Z0-9]{8,20}$/;
+		/^(?=.*[@!#$%^&*()/\\])(?=.*[0-9])(?=.*[a-zA-Z])[@!"'-«».,<>#$%^&*()/\\a-zA-Z0-9]{8,20}$/;
 	const emailRegEx = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
 	let passwordLevel = '';
 
