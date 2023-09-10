@@ -403,7 +403,7 @@ export default function Home() {
 					</svg>
 				</div>
 			</div>
-			{/* <p className='absolute bottom-[10px] opacity-80 text-[14px]'>By FRANCO</p> */}
+			<p className='by absolute bottom-[0px] opacity-30 text-[14px]'>Franco - All Rights Reserved</p> 
 		</main>
 	);
 }

@@ -54,7 +54,9 @@ export default function SignIn() {
 						</label>
 					</div>
 					<div>
-						<p className='font-semibold text-[14px] text-red-500'>Forgot Password</p>
+						<p className='font-semibold text-[14px] text-red-500'>
+							Forgot Password
+						</p>
 					</div>
 				</div>
 				<button className='w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mt-[35px] font-semibold text-[13px]'>

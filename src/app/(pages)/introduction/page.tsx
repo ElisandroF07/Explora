@@ -11,7 +11,6 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Introduction() {
-	
 	return (
 		<main className='bg-[var(--background-body-introduction)] text-[var(--foreground-introduction)] w-full h-full '>
 			<section className='w-full h-full'>
@@ -22,8 +21,12 @@ export default function Introduction() {
 					}}
 					navigation={true}
 					onSlideChange={(swiper) => {
-						let nextButton = document.querySelector('.swiper-button-next') as HTMLDivElement
-						let navigation = document.querySelector('.swiper-pagination') as HTMLDivElement
+						let nextButton = document.querySelector(
+							'.swiper-button-next'
+						) as HTMLDivElement;
+						let navigation = document.querySelector(
+							'.swiper-pagination'
+						) as HTMLDivElement;
 						if (swiper.activeIndex === 3) {
 							nextButton!.style.display = 'none';
 							navigation!.style.display = 'none';

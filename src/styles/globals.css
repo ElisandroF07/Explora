@@ -89,6 +89,10 @@ div.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dyn
   font-size: 14px;
 }
 
+.by {
+  letter-spacing: 3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 @keyframes dash {
   to {
