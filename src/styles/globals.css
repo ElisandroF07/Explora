@@ -85,6 +85,10 @@ div.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dyn
   stroke-width: 1px;
 }
 
+.input::placeholder {
+  font-size: 14px;
+}
+
 
 @keyframes dash {
   to {
