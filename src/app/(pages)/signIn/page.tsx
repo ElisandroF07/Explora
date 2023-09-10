@@ -1,3 +1,5 @@
+
+
 import { FaFacebook } from 'react-icons/fa6';
 import google from '@/assets/images/googleLogo.jpg';
 import Image from 'next/image';
@@ -9,19 +11,14 @@ export default function SignIn() {
 			<div>
 				<h1
 					className='font-bold text-[24px] w-[70%] mt-[30px]'
-					style={{ lineHeight: '20px' }}
-				>
-					Hi, Wellcome Back!
-				</h1>
+					style={{ lineHeight: '20px' }}> Hi, Wellcome Back!</h1>
 				<p className='font-light text-[14px] mt-[10px] text-[#5a5a5a] text-[13px]'>
 					Hello again, you've benn missed!
 				</p>
 			</div>
 			<form className='mt-[30px] flex flex-col gap-[20px]'>
 				<div className='inputControl flex flex-col gap-[5px]'>
-					<label htmlFor='email' className='font-semibold text-[14px]'>
-						Email Address
-					</label>
+					<label htmlFor='email' className='font-semibold text-[14px]'> Email Address </label>
 					<input
 						className='input w-full h-[50px] outline-none rounded-md pl-[20px]'
 						style={{ border: '1px solid #aaa' }}
