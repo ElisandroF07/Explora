@@ -45,19 +45,19 @@ export default function SignIn() {
 					{' '}
 					Hi, Wellcome Back!
 				</h1>
-				<p className='font-light text-[14px] mt-[10px] text-[#5a5a5a] text-[13px]'>
+				<p className='font-light text-[14px] mt-[15px] text-[#767676]'>
 					Hello again, you've been missed!
 				</p>
 			</div>
 			<form className='mt-[30px] flex flex-col gap-[20px]'>
-				<div className='inputControl flex flex-col gap-[5px] relative'>
-					<label htmlFor='email' className='font-semibold text-[14px]'>
+				<div className='inputControl flex flex-col gap-[3px] relative'>
+					<label htmlFor='email' className='font-semibold text-[12px]'>
 						{' '}
 						Email Address{' '}
 					</label>
 					<input
-						className='input w-full h-[50px] transition-colors duration-300 outline-none rounded-md px-[20px]'
-						style={{ border: '1px solid #aaa' }}
+						className='input w-full h-[45px] transition-colors duration-300 outline-none rounded-md px-[20px]'
+						style={{ border: '1px solid #c7c7c7' }}
 						type='email'
 						name='email'
 						placeholder='Enter your email'
@@ -68,15 +68,15 @@ export default function SignIn() {
 							resetInput(event);
 						}}
 					/>
-					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[20px] h-[20px] absolute right-[18px] top-[42px]' />
+					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[15px] h-[15px] absolute right-[18px] top-[36px]' />
 				</div>
-				<div className='inputControl flex flex-col gap-[5px] relative'>
-					<label htmlFor='password' className='font-semibold text-[14px]'>
+				<div className='inputControl flex flex-col gap-[3px] relative'>
+					<label htmlFor='password' className='font-semibold text-[12px]'>
 						Password
 					</label>
 					<input
-						className='input w-full h-[50px] transition-colors duration-300 outline-none rounded-md px-[20px]'
-						style={{ border: '1px solid #aaa' }}
+						className='input w-full h-[45px] transition-colors duration-300 outline-none rounded-md px-[20px]'
+						style={{ border: '1px solid #c7c7c7' }}
 						type='password'
 						name='password'
 						placeholder='Enter your password'
@@ -87,7 +87,7 @@ export default function SignIn() {
 							resetInput(event);
 						}}
 					/>
-					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[20px] h-[20px] absolute right-[18px] top-[42px]' />
+					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[15px] h-[15px] absolute right-[18px] top-[36px]' />
 				</div>
 				<div className='inputControl flex justify-between'>
 					<div className='flex gap-[10px] items-center justify-start'>
@@ -96,19 +96,19 @@ export default function SignIn() {
 							name='conditions'
 							className='w-[20px] h-[20px] rounded-md'
 						/>{' '}
-						<label htmlFor='password' className='font-semibold text-[14px]'>
+						<label htmlFor='password' className='font-semibold text-[13px]'>
 							Remember Me
 						</label>
 					</div>
 					<div>
-						<p className='font-semibold text-[14px] text-red-400'>
+						<p className='font-semibold text-[13px] text-red-400'>
 							Forgot Password
 						</p>
 					</div>
 				</div>
 				<button
 					type='button'
-					className='w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mt-[35px] font-semibold text-[13px]'
+					className='w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mt-[35px] text-[14px]'
 					onClick={() => {
 						check();
 					}}
@@ -116,16 +116,16 @@ export default function SignIn() {
 					Login
 				</button>
 				<div className='flex items-center justify-center mt-[10px] mb-[10px]'>
-					<div className='w-[80%] h-[.8px] bg-[var(--passive-color)] opacity-30'></div>
-					<div className='w-full text-center mt-[10px] text-[13px]  opacity-60'>
+					<div className='w-[80%] h-[.8px] bg-[var(--passive-color)] opacity-50'></div>
+					<div className='w-full text-center text-[13px]  opacity-80'>
 						Or Login With
 					</div>
-					<div className='w-[80%] h-[.8px] bg-[var(--passive-color)] opacity-30'></div>
+					<div className='w-[80%] h-[.8px] bg-[var(--passive-color)] opacity-50'></div>
 				</div>
 				<div className='flex justify-between'>
 					<button
-						className='w-[45%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #aaa' }}
+						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
+						style={{ border: '1px solid #c7c7c7' }}
 					>
 						<FaFacebook className='text-[#1877F2] w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
@@ -133,8 +133,8 @@ export default function SignIn() {
 						</p>
 					</button>
 					<button
-						className='w-[45%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #aaa' }}
+						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
+						style={{ border: '1px solid #c7c7c7' }}
 					>
 						<Image src={google} alt='google' className='w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
@@ -147,7 +147,7 @@ export default function SignIn() {
 						Don't have an account?{' '}
 						<Link
 							href='/signUp'
-							className='font-semibold text-[var(--passive-color)]'
+							className='font-semibold opacity-1 text-[#35308b]'
 						>
 							Sign Up
 						</Link>

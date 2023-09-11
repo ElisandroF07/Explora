@@ -402,8 +402,7 @@ export default function Home() {
 						/>
 					</svg>
 				</div>
-			</div>
-			<p className='by absolute bottom-[0px] opacity-30 text-[14px]'>Franco - All Rights Reserved</p> 
+			</div> 
 		</main>
 	);
 }
