@@ -4,7 +4,7 @@ export default function Card4() {
 	return (
 		<div className='card w-full h-full flex flex-col items-center justify-center relative'>
 			<svg
-			className='w-[80%] mb-[40%]'
+			className='w-[80%] mb-[60%]'
 				xmlns='http://www.w3.org/2000/svg'
 				data-name='Layer 1'
 				width='889.07556'
