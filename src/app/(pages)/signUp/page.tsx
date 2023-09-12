@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import 'https://www.google.com/recaptcha/api.js'
+import '@/api/google_recaptcha_api'
 
 const createUserSchema = z.object({
 	name: z
@@ -70,8 +70,8 @@ export default function SignUp() {
 						Name
 					</label>
 					<input
-						className='input w-full h-[45px] outline-none rounded-lg pl-[20px]'
-						style={{ border: '1px solid #c7c7c7' }}
+						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
+						
 						type='text'
 						placeholder='Enter your name'
 						{...register('name')}
@@ -89,8 +89,8 @@ export default function SignUp() {
 						Email Address
 					</label>
 					<input
-						className='input w-full h-[45px] outline-none rounded-lg pl-[20px]'
-						style={{ border: '1px solid #c7c7c7' }}
+						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
+						
 						type='email'
 						placeholder='Enter your email'
 						{...register('email')}
@@ -108,8 +108,8 @@ export default function SignUp() {
 						Password
 					</label>
 					<input
-						className='input w-full h-[45px] outline-none rounded-lg pl-[20px]'
-						style={{ border: '1px solid #c7c7c7' }}
+						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
+						
 						type='password'
 						placeholder='Enter your password'
 						{...register('password')}
