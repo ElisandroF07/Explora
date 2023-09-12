@@ -12,9 +12,7 @@ const createUserSchema = z.object({
 	email: z.string().min(1, { message: 'Email is required' }).email({
 		message: 'Must be a valid email',
 	}),
-	password: z
-		.string()
-		.min(6, 'Password must be atleast 6 characters'),
+	password: z.string().min(6, 'Password must be atleast 6 characters'),
 	isConditionsAccepted: z.literal<boolean>(true, {
 		errorMap: () => ({ message: 'You must accept Terms and Conditions' }),
 	}),
@@ -128,10 +126,10 @@ export default function SignUp() {
 					</label>
 				</div>
 				{errors.isConditionsAccepted && (
-						<p className='textPWD  transition-colors duration-300 text-[13px] text-red-500'>
-							{errors.isConditionsAccepted.message}
-						</p>
-					)}
+					<p className='textPWD  transition-colors duration-300 text-[13px] text-red-500'>
+						{errors.isConditionsAccepted.message}
+					</p>
+				)}
 				<button
 					type='submit'
 					className='signButton w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] transition-colors duration-300 mt-[35px]  text-[14px]'>

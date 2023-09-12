@@ -1,38 +1,37 @@
 'use client';
 
-import { FaFacebook, FaCircleInfo } from 'react-icons/fa6';
+import { FaFacebook } from 'react-icons/fa6';
 import google from '@/assets/images/googleLogo.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const createUserSchema = z.object({
+	email: z.string().min(1, { message: 'Email is required' }).email({
+		message: 'Must be a valid email',
+	}),
+	password: z.string().min(6, {
+		message: 'Password must be atleast 6 characters',
+	}),
+	isRememberChecked: z.boolean(),
+});
+
+type createUserFormData = z.infer<typeof createUserSchema>;
 
 export default function SignIn() {
-	const [password, setPassword] = useState('');
-	const [email, setEmail] = useState('');
 
-	function check(): void {
-		let inputControls = document.querySelectorAll(
-			'.inputControl'
-		) as NodeListOf<HTMLDivElement>;
-		inputControls?.forEach((inputControl) => {
-			let input = inputControl.querySelector('.input') as HTMLInputElement;
-			if (input?.value === '') {
-				input.style.borderColor = '#ff0000';
-				let warningIcon = inputControl.querySelector('.warning') as HTMLElement;
-				warningIcon?.classList.remove('opacity-0');
-			} else {
-				console.log(input);
-			}
-		});
-	}
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<createUserFormData>({
+		resolver: zodResolver(createUserSchema)
+	});
 
-	function resetInput(event: React.FocusEvent<HTMLInputElement>): void {
-		let input = event.target as HTMLInputElement;
-		let warningIcon = input.parentElement?.querySelector(
-			'.warning'
-		) as HTMLElement;
-		warningIcon?.classList.add('opacity-0');
-		input.style.borderColor = '#aaa';
+	function createUser(data: any) {
+		console.log(data)
 	}
 
 	return (
@@ -40,8 +39,7 @@ export default function SignIn() {
 			<div>
 				<h1
 					className='font-bold text-[24px] w-[70%] mt-[30px]'
-					style={{ lineHeight: '20px' }}
-				>
+					style={{ lineHeight: '20px' }}>
 					{' '}
 					Hi, Wellcome Back!
 				</h1>
@@ -49,9 +47,11 @@ export default function SignIn() {
 					Hello again, you've been missed!
 				</p>
 			</div>
-			<form className='mt-[30px] flex flex-col gap-[20px]'>
+			<form onSubmit={handleSubmit(createUser)} className='mt-[30px] flex flex-col gap-[20px]'>
 				<div className='inputControl flex flex-col gap-[3px] relative'>
-					<label htmlFor='email' className='font-semibold text-[12px]'>
+					<label
+						htmlFor='email'
+						className='font-semibold text-[12px]'>
 						{' '}
 						Email Address{' '}
 					</label>
@@ -59,60 +59,56 @@ export default function SignIn() {
 						className='input w-full h-[45px] transition-colors duration-300 outline-none rounded-md px-[20px]'
 						style={{ border: '1px solid #c7c7c7' }}
 						type='email'
-						name='email'
 						placeholder='Enter your email'
-						onChange={(event) => {
-							setEmail(event.target.value);
-						}}
-						onFocus={(event) => {
-							resetInput(event);
-						}}
+						{...register('email')}
 					/>
-					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[15px] h-[15px] absolute right-[18px] top-[36px]' />
+					{errors.email && (
+						<p className='textPWD transition-colors duration-300 text-[13px] text-red-500'>
+							{errors.email.message}
+						</p>
+					)}
 				</div>
 				<div className='inputControl flex flex-col gap-[3px] relative'>
-					<label htmlFor='password' className='font-semibold text-[12px]'>
+					<label
+						htmlFor='password'
+						className='font-semibold text-[12px]'>
 						Password
 					</label>
 					<input
 						className='input w-full h-[45px] transition-colors duration-300 outline-none rounded-md px-[20px]'
 						style={{ border: '1px solid #c7c7c7' }}
 						type='password'
-						name='password'
 						placeholder='Enter your password'
-						onChange={(event) => {
-							setPassword(event.target.value);
-						}}
-						onFocus={(event) => {
-							resetInput(event);
-						}}
+						{...register('password')}
 					/>
-					<FaCircleInfo className='warning text-red-500 opacity-0 transition-opacity duration-300 w-[15px] h-[15px] absolute right-[18px] top-[36px]' />
+					{errors.password && (
+						<p className='textPWD transition-colors duration-300 text-[13px] text-red-500'>
+							{errors.password.message}
+						</p>
+					)}
 				</div>
 				<div className='inputControl flex justify-between'>
 					<div className='flex gap-[10px] items-center justify-start'>
 						<input
 							type='checkbox'
-							name='conditions'
 							className='w-[20px] h-[20px] rounded-md'
+							{...register('isRememberChecked')}
 						/>{' '}
-						<label htmlFor='password' className='font-semibold text-[13px]'>
+						<label
+							htmlFor='password'
+							className='font-semibold text-[13px]'>
 							Remember Me
 						</label>
 					</div>
 					<div>
-						<p className='font-semibold text-[13px] text-red-400'>
+						<p className='font-semibold text-[13px] text-red-500'>
 							Forgot Password
 						</p>
 					</div>
 				</div>
 				<button
-					type='button'
-					className='w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mt-[35px] text-[14px]'
-					onClick={() => {
-						check();
-					}}
-				>
+					type='submit'
+					className='w-full h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mt-[35px] text-[14px]'>
 					Login
 				</button>
 				<div className='flex items-center justify-center mt-[10px] mb-[10px]'>
@@ -124,19 +120,23 @@ export default function SignIn() {
 				</div>
 				<div className='flex justify-between'>
 					<button
+						type='button'
 						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #c7c7c7' }}
-					>
+						style={{ border: '1px solid #c7c7c7' }}>
 						<FaFacebook className='text-[#1877F2] w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
 							Facebook
 						</p>
 					</button>
 					<button
+						type='button'
 						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #c7c7c7' }}
-					>
-						<Image src={google} alt='google' className='w-[20px] h-[20px]' />
+						style={{ border: '1px solid #c7c7c7' }}>
+						<Image
+							src={google}
+							alt='google'
+							className='w-[20px] h-[20px]'
+						/>
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
 							Google
 						</p>
@@ -147,8 +147,7 @@ export default function SignIn() {
 						Don't have an account?{' '}
 						<Link
 							href='/signUp'
-							className='font-semibold opacity-1 text-[#35308b]'
-						>
+							className='font-semibold opacity-1 text-[#35308b]'>
 							Sign Up
 						</Link>
 					</p>
