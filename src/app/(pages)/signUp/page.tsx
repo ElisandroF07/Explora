@@ -8,10 +8,23 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const createUserSchema = z.object({
-	name: z.string().nonempty('Username is required'),
-	email: z.string().min(1, { message: 'Email is required' }).email({
-		message: 'Must be a valid email',
-	}),
+	name: z
+		.string()
+		.nonempty('Username is required')
+		.transform((name) => {
+			return name.trim().split(' ').map((word)=>{
+				return word[0].toLocaleUpperCase().concat(word.substring(1))
+			})
+		}),
+	email: z
+		.string()
+		.min(1, { message: 'Email is required' })
+		.email({
+			message: 'Must be a valid email',
+		})
+		.transform((email) => {
+			return email.trim().toLowerCase();
+		}),
 	password: z.string().min(6, 'Password must be atleast 6 characters'),
 	isConditionsAccepted: z.literal<boolean>(true, {
 		errorMap: () => ({ message: 'You must accept Terms and Conditions' }),
@@ -30,8 +43,8 @@ export default function SignUp() {
 	});
 
 	function createUser(data: any) {
-		console.log(data);
-		console.log(errors);
+		console.log(data)
+		window.location.pathname = '/build';
 	}
 
 	return (
@@ -145,8 +158,7 @@ export default function SignUp() {
 				<div className='flex justify-between'>
 					<button
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #c7c7c7' }}>
+						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
 						<FaFacebook className='text-[#1877F2] w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
 							Facebook
@@ -154,8 +166,7 @@ export default function SignUp() {
 					</button>
 					<button
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[var(--foreground)] flex items-center justify-center gap-[10px]'
-						style={{ border: '1px solid #c7c7c7' }}>
+						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
 						<Image
 							src={google}
 							alt='google'

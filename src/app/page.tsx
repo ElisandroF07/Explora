@@ -1,6 +1,5 @@
 'use client';
 
-import Router from 'next/router';
 import { useEffect } from 'react';
 
 export default function Home() {
@@ -18,8 +17,7 @@ export default function Home() {
 					height='153'
 					viewBox='0 0 200 153'
 					fill='none'
-					xmlns='http://www.w3.org/2000/svg'
-				>
+					xmlns='http://www.w3.org/2000/svg'>
 					<g clipPath='url(#clip0_1_343)'>
 						<path
 							className='svg'
@@ -304,7 +302,10 @@ export default function Home() {
 							d='M119.469 96.7952C106.036 86.4367 90.0241 68.6846 90.0241 42.9378C90.009 33.8597 92.6871 24.9811 97.7194 17.4254C102.752 9.86967 109.912 3.97648 118.295 0.491455L118.473 0.917923C110.175 4.36791 103.086 10.2019 98.1042 17.6817C93.1224 25.1614 90.4713 33.9509 90.4862 42.9378C90.4862 68.4969 106.4 86.1341 119.751 96.4292L119.469 96.7952Z'
 							fill='#3F3D56'
 						/>
-						<path d='M125.025 0H124.563V97.0456H125.025V0Z' fill='#3F3D56' />
+						<path
+							d='M125.025 0H124.563V97.0456H125.025V0Z'
+							fill='#3F3D56'
+						/>
 						<path
 							d='M119.587 133.765L111.113 142.239L111.44 142.566L119.914 134.092L119.587 133.765Z'
 							fill='#3F3D56'
@@ -355,7 +356,11 @@ export default function Home() {
 					</g>
 					<defs>
 						<clipPath id='clip0_1_343'>
-							<rect width='200' height='152.165' fill='white' />
+							<rect
+								width='200'
+								height='152.165'
+								fill='white'
+							/>
 						</clipPath>
 					</defs>
 				</svg>
@@ -368,8 +373,7 @@ export default function Home() {
 						viewBox='0 0 42 18'
 						fill='none'
 						className='translate-x-[10px] translate-y-[10px]'
-						xmlns='http://www.w3.org/2000/svg'
-					>
+						xmlns='http://www.w3.org/2000/svg'>
 						<path
 							className='svg'
 							d='M1.08228 8.84812C6.77436 6.62496 10.1929 -2.5374 15.6578 3.15536C21.1227 8.84812 23.8552 11.125 28.8647 10.8974C33.8742 10.6697 40.9331 4.74933 40.9331 4.74933'
@@ -402,7 +406,7 @@ export default function Home() {
 						/>
 					</svg>
 				</div>
-			</div> 
+			</div>
 		</main>
 	);
 }
