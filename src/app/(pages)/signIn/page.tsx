@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import '@/api/google_recaptcha_api'
+
 
 const createUserSchema = z.object({
 	email: z
@@ -160,7 +160,7 @@ export default function SignIn() {
 					</p>
 				</div>
 			</form>
-			<div className='g-recaptcha' data-sitekey='6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR'></div>
+			<script src="https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR" async defer ></script>
 		</main>
 	);
 }
