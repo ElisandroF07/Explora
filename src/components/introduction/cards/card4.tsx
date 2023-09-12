@@ -229,7 +229,7 @@ export default function Card4() {
 					className='font-black text-[32px] w-[70%]'
 					style={{ lineHeight: '40px' }}
 				>
-					Wellcome to Explora
+					Let's Get Started
 				</h1>
 				<p className='font-light text-[16px] mt-[10px] text-[#5a5a5a] text-[13px]'>
 					Please login to your account or create new account to continue
