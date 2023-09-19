@@ -189,7 +189,6 @@ export default function Build() {
 					fill='#2f2e41'
 				/>
 				<path
-                
 					d='M846.29741,415.4331h-304a16.51867,16.51867,0,0,1-16.5-16.5v-65a16.51868,16.51868,0,0,1,16.5-16.5h304a16.519,16.519,0,0,1,16.5,16.5v65A16.519,16.519,0,0,1,846.29741,415.4331Z'
 					transform='translate(-180.86417 -106.46046)'
 					fill='#fff'
@@ -324,7 +323,6 @@ export default function Build() {
 						Back To Home
 					</button>
 				</Link>
-				
 			</div>
 		</div>
 	);

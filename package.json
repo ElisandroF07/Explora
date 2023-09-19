@@ -29,7 +29,8 @@
     "swiper": "^10.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
-    "zod": "^3.22.2"
+    "zod": "^3.22.2",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",

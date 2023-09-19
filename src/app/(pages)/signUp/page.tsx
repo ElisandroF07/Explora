@@ -1,4 +1,5 @@
 'use client';
+
 import { FaFacebook } from 'react-icons/fa6';
 import google from '@/assets/images/googleLogo.jpg';
 import Image from 'next/image';
@@ -6,16 +7,23 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
+import useUserStore from '@/contexts/stores/userStore';
 
+const CLIENT_ID =
+	'389948282812-dql26j7qvn78161n76ncn15tp8r0n0vb.apps.googleusercontent.com';
 
 const createUserSchema = z.object({
 	name: z
 		.string()
 		.nonempty('Username is required')
 		.transform((name) => {
-			return name.trim().split(' ').map((word)=>{
-				return word[0].toLocaleUpperCase().concat(word.substring(1))
-			})
+			return name
+				.trim()
+				.split(' ')
+				.map((word) => {
+					return word[0].toLocaleUpperCase().concat(word.substring(1));
+				});
 		}),
 	email: z
 		.string()
@@ -32,9 +40,71 @@ const createUserSchema = z.object({
 	}),
 });
 
+declare global {
+	interface Window {
+		gapi?: any;
+	}
+}
+
 type CreateUserFormData = z.infer<typeof createUserSchema>;
 
 export default function SignUp() {
+	const firstName = useUserStore((state) => state.firstName);
+	const updateFirstName = useUserStore((state) => state.updateFirstName);
+
+	const lastName = useUserStore((state) => state.lastName);
+	const updateLastName = useUserStore((state) => state.updateLastName);
+
+	const pictureUrl = useUserStore((state) => state.pictureUrl);
+	const updatePictureUrl = useUserStore((state) => state.updatePictureUrl);
+
+	const email = useUserStore((state) => state.email);
+	const updateEmail = useUserStore((state) => state.updateEmail);
+
+	const googleId = useUserStore((state) => state.googleId);
+	const updateGoogleId = useUserStore((state) => state.updateGoogleId);
+
+	useEffect(() => {
+		/* global gapi */
+		window.gapi?.load('client:auth2', () => {
+			const auth2 = window.gapi.auth2.init({
+				clientId: CLIENT_ID,
+				scope: 'profile email',
+			});
+			auth2.attachClickHandler(
+				document.getElementById('customGoogleSignInButton'),
+				{},
+				(googleUser: any) => {
+					console.log(googleUser.getBasicProfile());
+					updateFirstName(googleUser.getBasicProfile().getGivenName());
+					updateLastName(googleUser.getBasicProfile().getFamilyName);
+					updateEmail(googleUser.getBasicProfile().getEmail());
+					updatePictureUrl(googleUser.getBasicProfile().RT);
+					updateGoogleId(googleUser.getBasicProfile().getId());
+					let modal = document.getElementById('modal') as HTMLElement;
+					setTimeout(() => {
+						modal.style.display = 'flex';
+					}, 500);
+				},
+				(error: any) => {
+					console.log(error);
+				}
+			);
+		});
+
+		// function start() {
+		// 	gapi.client.init({
+		// 		clientId: CLIENT_ID,
+		// 		scope: 'profile email',
+		// 	});
+		// 	attachSignin(
+		// 		document.getElementById('customGoogleSignInButton') as HTMLElement
+		// 	);
+		// }
+
+		// gapi.load('client:auth2', start);
+	}, []);
+
 	const {
 		register,
 		handleSubmit,
@@ -44,15 +114,38 @@ export default function SignUp() {
 	});
 
 	function createUser(data: any) {
-		console.log(data)
-		window.location.pathname = '/build';
+		console.log(data);
 	}
 
 	return (
 		<main className='bg-[var(--background-body-introduction)] text-[var(--foreground-introduction)] w-full h-full p-[15px]'>
+			<div
+				id='modal'
+				style={{ display: 'none' }}
+				className=' absolute top-0 left-0 w-full h-full bg-[#00000030] z-40 flex items-center justify-center'>
+				<div className='pt-[40px] w-[80%] opacity-1 flex-col h-[400px] rounded-lg bg-white flex items-center justify-center'>
+					<Image
+						src={pictureUrl}
+						alt='image'
+						width={200}
+						height={200}
+						className=' rounded-full bg-red mb-[30px]'
+					/>
+					<h1
+						className='font-bold text-[24px] w-[70%]'
+						style={{ lineHeight: '20px' }}>
+						Wellcome {firstName}
+					</h1>
+					<Link href='/build'>
+						<button className='w-[65vw] h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mb-3 mt-[10%]  text-[14px]'>
+							Back To Home
+						</button>
+					</Link>
+				</div>
+			</div>
 			<div>
 				<h1
-					className='font-bold text-[24px] w-[70%] mt-[30px]'
+					className='font-bold text-[24px] w-[70%] '
 					style={{ lineHeight: '20px' }}>
 					Create Account
 				</h1>
@@ -70,8 +163,7 @@ export default function SignUp() {
 						Name
 					</label>
 					<input
-						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
-						
+						className='input w-full h-[45px] bg-[#f4f4f5] outline-none rounded-lg pl-[20px]'
 						type='text'
 						placeholder='Enter your name'
 						{...register('name')}
@@ -89,8 +181,7 @@ export default function SignUp() {
 						Email Address
 					</label>
 					<input
-						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
-						
+						className='input w-full h-[45px] bg-[#f4f4f5] outline-none rounded-lg pl-[20px]'
 						type='email'
 						placeholder='Enter your email'
 						{...register('email')}
@@ -108,8 +199,7 @@ export default function SignUp() {
 						Password
 					</label>
 					<input
-						className='input w-full h-[45px] bg-[#eff1f4] outline-none rounded-lg pl-[20px]'
-						
+						className='input w-full h-[45px] bg-[#f4f4f5] outline-none rounded-lg pl-[20px]'
 						type='password'
 						placeholder='Enter your password'
 						{...register('password')}
@@ -159,15 +249,16 @@ export default function SignUp() {
 				<div className='flex justify-between'>
 					<button
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
+						className='w-[48%] h-[45px] rounded-md bg-[#f4f4f5] flex items-center justify-center gap-[10px]'>
 						<FaFacebook className='text-[#1877F2] w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
 							Facebook
 						</p>
 					</button>
 					<button
+						id='customGoogleSignInButton'
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
+						className='w-[48%] h-[45px] rounded-md bg-[#f4f4f5] flex items-center justify-center gap-[10px]'>
 						<Image
 							src={google}
 							alt='google'
@@ -189,7 +280,14 @@ export default function SignUp() {
 					</p>
 				</div>
 			</form>
-			<script src="https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR" async defer></script>
+			<script
+				src='https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR'
+				async
+				defer></script>
+			<script
+				src='https://apis.google.com/js/api:client.js'
+				async
+				defer></script>
 		</main>
 	);
 }

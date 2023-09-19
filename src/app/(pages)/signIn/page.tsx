@@ -65,7 +65,7 @@ export default function SignIn() {
 						Email Address{' '}
 					</label>
 					<input
-						className='input w-full h-[45px] transition-colors bg-[#eff1f4] duration-300 outline-none rounded-md px-[20px]'
+						className='input w-full h-[45px] transition-colors bg-[#f4f4f5] duration-300 outline-none rounded-md px-[20px]'
 						
 						type='email'
 						placeholder='Enter your email'
@@ -84,7 +84,7 @@ export default function SignIn() {
 						Password
 					</label>
 					<input
-						className='input w-full h-[45px] transition-colors bg-[#eff1f4] duration-300 outline-none rounded-md px-[20px]'
+						className='input w-full h-[45px] transition-colors bg-[#f4f4f5] duration-300 outline-none rounded-md px-[20px]'
 						
 						type='password'
 						placeholder='Enter your password'
@@ -130,7 +130,7 @@ export default function SignIn() {
 				<div className='flex justify-between'>
 					<button
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
+						className='w-[48%] h-[45px] rounded-md bg-[#f4f4f5] flex items-center justify-center gap-[10px]'>
 						<FaFacebook className='text-[#1877F2] w-[20px] h-[20px]' />
 						<p className='text-[var(--passive-color)] font-semibold text-[13px]'>
 							Facebook
@@ -138,7 +138,7 @@ export default function SignIn() {
 					</button>
 					<button
 						type='button'
-						className='w-[48%] h-[45px] rounded-md bg-[#eff1f4] flex items-center justify-center gap-[10px]'>
+						className='w-[48%] h-[45px] rounded-md bg-[#f4f4f5] flex items-center justify-center gap-[10px]'>
 						<Image
 							src={google}
 							alt='google'
