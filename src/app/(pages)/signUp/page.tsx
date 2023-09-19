@@ -13,6 +13,12 @@ import useUserStore from '@/contexts/stores/userStore';
 const CLIENT_ID =
 	'389948282812-dql26j7qvn78161n76ncn15tp8r0n0vb.apps.googleusercontent.com';
 
+declare global {
+	interface Window {
+		gapi: any;
+	}
+}
+
 const createUserSchema = z.object({
 	name: z
 		.string()
@@ -40,18 +46,6 @@ const createUserSchema = z.object({
 	}),
 });
 
-// declare global {
-// 	interface Window {
-// 		gapi?: any;
-// 	}
-// }
-
-declare global {
-	interface Window {
-		gapi: any;
-	}
-}
-
 type CreateUserFormData = z.infer<typeof createUserSchema>;
 
 export default function SignUp() {
@@ -71,7 +65,6 @@ export default function SignUp() {
 	const updateGoogleId = useUserStore((state) => state.updateGoogleId);
 
 	useEffect(() => {
-		/* global gapi */
 		window.gapi?.load('client:auth2', () => {
 			const auth2 = window.gapi.auth2.init({
 				clientId: CLIENT_ID,
@@ -82,14 +75,15 @@ export default function SignUp() {
 				document.getElementById('customGoogleSignInButton'),
 				{},
 				(googleUser: any) => {
-					console.log(googleUser.getBasicProfile());
 					updateFirstName(googleUser.getBasicProfile().getGivenName());
 					updateLastName(googleUser.getBasicProfile().getFamilyName);
 					updateEmail(googleUser.getBasicProfile().getEmail());
-					updatePictureUrl(googleUser.getBasicProfile().RT);
+					updatePictureUrl(googleUser.getBasicProfile().cU);
 					updateGoogleId(googleUser.getBasicProfile().getId());
-					let modal = document.getElementById('modal') as HTMLElement;
-					window.location.pathname = '/dashboard'
+					let linkToDashboard = document.getElementById(
+						'linkToDashboard'
+					) as HTMLLinkElement;
+					linkToDashboard?.click();
 				},
 				(error: any) => {
 					console.log(error);
@@ -248,6 +242,10 @@ export default function SignUp() {
 						</Link>
 					</p>
 				</div>
+				<Link
+					id='linkToDashboard'
+					className='opacity-0'
+					href='/dashboard'></Link>
 			</form>
 			{/* <script
 				src='https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR'
