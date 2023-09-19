@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import useUserStore from '@/contexts/stores/userStore';
 
 const CLIENT_ID =
-	'389948282812-dql26j7qvn78161n76ncn15tp8r0n0vb.apps.googleusercontent.com';
+	'943429597038-cie2777pr6rdnhnu59jc8rocpq1i1ai6.apps.googleusercontent.com';
 
 declare global {
 	interface Window {
@@ -78,7 +78,7 @@ export default function SignUp() {
 					updateFirstName(googleUser.getBasicProfile().getGivenName());
 					updateLastName(googleUser.getBasicProfile().getFamilyName);
 					updateEmail(googleUser.getBasicProfile().getEmail());
-					updatePictureUrl(googleUser.getBasicProfile().cU);
+					updatePictureUrl(googleUser.getBasicProfile().getImageUrl());
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let linkToDashboard = document.getElementById(
 						'linkToDashboard'
