@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-
 const createUserSchema = z.object({
 	email: z
 		.string()
@@ -66,7 +65,6 @@ export default function SignIn() {
 					</label>
 					<input
 						className='input w-full h-[45px] transition-colors bg-[#f4f4f5] duration-300 outline-none rounded-md px-[20px]'
-						
 						type='email'
 						placeholder='Enter your email'
 						{...register('email')}
@@ -85,7 +83,6 @@ export default function SignIn() {
 					</label>
 					<input
 						className='input w-full h-[45px] transition-colors bg-[#f4f4f5] duration-300 outline-none rounded-md px-[20px]'
-						
 						type='password'
 						placeholder='Enter your password'
 						{...register('password')}

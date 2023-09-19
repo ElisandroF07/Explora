@@ -89,9 +89,7 @@ export default function SignUp() {
 					updatePictureUrl(googleUser.getBasicProfile().RT);
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let modal = document.getElementById('modal') as HTMLElement;
-					setTimeout(() => {
-						modal.style.display = 'flex';
-					}, 200);
+					window.location.pathname = '/dashboard'
 				},
 				(error: any) => {
 					console.log(error);
