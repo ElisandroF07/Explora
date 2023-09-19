@@ -91,7 +91,7 @@ export default function SignUp() {
 					updatePictureUrl(googleUser.getBasicProfile().RT);
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let modal = document.getElementById('modal') as HTMLElement;
-					alert('Entrou')
+					window.location.pathname = '/build'
 				},
 				(error: any) => {
 					console.log(error);
