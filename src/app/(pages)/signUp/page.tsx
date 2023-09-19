@@ -91,9 +91,7 @@ export default function SignUp() {
 					updatePictureUrl(googleUser.getBasicProfile().RT);
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let modal = document.getElementById('modal') as HTMLElement;
-					setTimeout(() => {
-						modal.style.display = 'flex';
-					}, 500);
+					alert('Entrou')
 				},
 				(error: any) => {
 					console.log(error);
@@ -101,17 +99,6 @@ export default function SignUp() {
 			);
 		});
 
-		// function start() {
-		// 	gapi.client.init({
-		// 		clientId: CLIENT_ID,
-		// 		scope: 'profile email',
-		// 	});
-		// 	attachSignin(
-		// 		document.getElementById('customGoogleSignInButton') as HTMLElement
-		// 	);
-		// }
-
-		// gapi.load('client:auth2', start);
 	}, []);
 
 	const {
