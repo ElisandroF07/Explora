@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
 	useEffect(() => {
+		let linkToIntroduction = document.getElementById('linkToIntroduction')
 		setTimeout(() => {
-			window.location.pathname = '/introduction';
-		}, 3000);
+			linkToIntroduction?.click()
+		}, 2000);
 	}, []);
 
 	return (
@@ -406,6 +408,7 @@ export default function Home() {
 						/>
 					</svg>
 				</div>
+				<Link href='/introduction' className='opacity-0' id='linkToIntroduction'></Link>
 			</div>
 		</main>
 	);
