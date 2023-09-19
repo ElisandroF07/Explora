@@ -92,7 +92,9 @@ export default function SignUp() {
 					updatePictureUrl(googleUser.getBasicProfile().RT);
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let modal = document.getElementById('modal') as HTMLElement;
-					window.location.pathname = '/build'
+					setTimeout(()=>{
+						modal.style.display = 'flex'
+					}, 200)
 				},
 				(error: any) => {
 					console.log(error);
