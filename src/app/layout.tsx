@@ -17,6 +17,10 @@ export default function RootLayout({
 	return (
 		<html lang='pt'>
 			<body className={inter.className}>{children}
+			<script
+				src='https://apis.google.com/js/api:client.js'
+				async
+				defer></script>
 			</body>
 		</html>
 	);

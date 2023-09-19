@@ -160,7 +160,7 @@ export default function SignIn() {
 					</p>
 				</div>
 			</form>
-			<script src="https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR" async defer ></script>
+			{/* <script src="https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR" async defer ></script> */}
 		</main>
 	);
 }

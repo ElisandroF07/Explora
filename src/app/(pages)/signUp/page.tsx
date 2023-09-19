@@ -47,13 +47,10 @@ const createUserSchema = z.object({
 // }
 
 declare global {
-    interface Window {
-        gapi:any;
-    }
+	interface Window {
+		gapi: any;
+	}
 }
-
-
-
 
 type CreateUserFormData = z.infer<typeof createUserSchema>;
 
@@ -92,16 +89,15 @@ export default function SignUp() {
 					updatePictureUrl(googleUser.getBasicProfile().RT);
 					updateGoogleId(googleUser.getBasicProfile().getId());
 					let modal = document.getElementById('modal') as HTMLElement;
-					setTimeout(()=>{
-						modal.style.display = 'flex'
-					}, 200)
+					setTimeout(() => {
+						modal.style.display = 'flex';
+					}, 200);
 				},
 				(error: any) => {
 					console.log(error);
 				}
 			);
 		});
-
 	}, []);
 
 	const {
@@ -118,30 +114,6 @@ export default function SignUp() {
 
 	return (
 		<main className='bg-[var(--background-body-introduction)] text-[var(--foreground-introduction)] w-full h-full p-[15px]'>
-			<div
-				id='modal'
-				style={{ display: 'none' }}
-				className=' absolute top-0 left-0 w-full h-full bg-[#00000050] z-40 flex items-center justify-center'>
-				<div className='pt-[40px] w-[80%] opacity-1 flex-col h-[400px] rounded-lg bg-white flex items-center justify-center'>
-					<Image
-						src={pictureUrl}
-						alt='image'
-						width={200}
-						height={200}
-						className=' rounded-full bg-red mb-[30px]'
-					/>
-					<h1
-						className='font-bold text-[20px] text-center m-auto w-[100%]'
-						style={{ lineHeight: '10px' }}>
-						Wellcome {firstName}
-					</h1>
-					<Link href='/build'>
-						<button className='w-[65vw] h-[45px] rounded-md bg-[var(--background-body)] text-[var(--foreground)] mb-3 mt-[10%]  text-[14px]'>
-							Back To Home
-						</button>
-					</Link>
-				</div>
-			</div>
 			<div>
 				<h1
 					className='font-bold text-[24px] w-[70%] '
@@ -279,10 +251,10 @@ export default function SignUp() {
 					</p>
 				</div>
 			</form>
-			<script
+			{/* <script
 				src='https://www.google.com/recaptcha/api.js?render=6LeVGR4oAAAAAC7F-JpiBuKqRP_McObFu3G8ApXR'
 				async
-				defer></script>
+				defer></script> */}
 			<script
 				src='https://apis.google.com/js/api:client.js'
 				async
