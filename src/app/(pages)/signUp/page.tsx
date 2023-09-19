@@ -76,7 +76,7 @@ export default function SignUp() {
 				{},
 				(googleUser: any) => {
 					updateFirstName(googleUser.getBasicProfile().getGivenName());
-					updateLastName(googleUser.getBasicProfile().getFamilyName);
+					updateLastName(googleUser.getBasicProfile().getFamilyName());
 					updateEmail(googleUser.getBasicProfile().getEmail());
 					updatePictureUrl(googleUser.getBasicProfile().getImageUrl());
 					updateGoogleId(googleUser.getBasicProfile().getId());
