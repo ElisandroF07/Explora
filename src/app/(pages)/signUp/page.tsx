@@ -131,8 +131,8 @@ export default function SignUp() {
 						className=' rounded-full bg-red mb-[30px]'
 					/>
 					<h1
-						className='font-bold text-[24px] w-[100%]'
-						style={{ lineHeight: '20px' }}>
+						className='font-bold text-[20px] text-center m-auto w-[100%]'
+						style={{ lineHeight: '10px' }}>
 						Wellcome {firstName}
 					</h1>
 					<Link href='/build'>
