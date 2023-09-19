@@ -79,6 +79,7 @@ export default function SignUp() {
 			const auth2 = window.gapi.auth2.init({
 				clientId: CLIENT_ID,
 				scope: 'profile email',
+				plugin_name: 'hello',
 			});
 			auth2.attachClickHandler(
 				document.getElementById('customGoogleSignInButton'),
