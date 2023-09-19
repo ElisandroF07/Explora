@@ -121,7 +121,7 @@ export default function SignUp() {
 			<div
 				id='modal'
 				style={{ display: 'none' }}
-				className=' absolute top-0 left-0 w-full h-full bg-[#00000030] z-40 flex items-center justify-center'>
+				className=' absolute top-0 left-0 w-full h-full bg-[#00000050] z-40 flex items-center justify-center'>
 				<div className='pt-[40px] w-[80%] opacity-1 flex-col h-[400px] rounded-lg bg-white flex items-center justify-center'>
 					<Image
 						src={pictureUrl}
@@ -131,7 +131,7 @@ export default function SignUp() {
 						className=' rounded-full bg-red mb-[30px]'
 					/>
 					<h1
-						className='font-bold text-[24px] w-[70%]'
+						className='font-bold text-[24px] w-[100%]'
 						style={{ lineHeight: '20px' }}>
 						Wellcome {firstName}
 					</h1>
