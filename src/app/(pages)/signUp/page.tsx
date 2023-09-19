@@ -40,11 +40,20 @@ const createUserSchema = z.object({
 	}),
 });
 
+// declare global {
+// 	interface Window {
+// 		gapi?: any;
+// 	}
+// }
+
 declare global {
-	interface Window {
-		gapi?: any;
-	}
+    interface Window {
+        gapi:any;
+    }
 }
+
+
+
 
 type CreateUserFormData = z.infer<typeof createUserSchema>;
 
