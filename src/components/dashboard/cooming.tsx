@@ -165,7 +165,7 @@ export default function Cooming() {
 				</g>
 			</svg>
 			<div>
-				<p className='font-light text-[16px] text-[#5a5a5a] text-[13px]'>
+				<p className='font-light text-[#5a5a5a] text-[13px]'>
 					We are working to offer the best for you
 				</p>
 				<Link href='/introduction'>

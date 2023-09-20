@@ -283,7 +283,7 @@ export default function Card4() {
 					style={{ lineHeight: '40px' }}>
 					Let's Get Started
 				</h1>
-				<p className='font-light text-[16px] mt-[10px] text-[#5a5a5a] text-[13px]'>
+				<p className='font-light mt-[10px] text-[#5a5a5a] text-[13px]'>
 					Please login to your account or create new account to continue
 				</p>
 				<Link href='/signUp'>
