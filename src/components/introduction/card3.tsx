@@ -7,8 +7,7 @@ export default function Card3() {
 					height='247'
 					viewBox='0 0 300 247'
 					fill='none'
-					xmlns='http://www.w3.org/2000/svg'
-				>
+					xmlns='http://www.w3.org/2000/svg'>
 					<g clipPath='url(#clip0_1_732)'>
 						<path
 							d='M40.2067 56.9531C32.1813 56.9564 28.7337 68.5769 20.88 70.2282C17.3723 70.9657 13.7933 69.4975 10.2095 69.434C6.62562 69.3705 2.33881 71.9727 3.09612 75.4762L71.4209 74.4462C64.3587 73.7129 57.7529 70.6098 52.6796 65.6424C48.9765 61.9596 45.4292 56.951 40.2067 56.9531Z'
@@ -141,7 +140,11 @@ export default function Card3() {
 					</g>
 					<defs>
 						<clipPath id='clip0_1_732'>
-							<rect width='300' height='246.061' fill='white' />
+							<rect
+								width='300'
+								height='246.061'
+								fill='white'
+							/>
 						</clipPath>
 					</defs>
 				</svg>
@@ -149,8 +152,7 @@ export default function Card3() {
 			<div className=' px-[20px] py-[20px] mt-[40px]'>
 				<h1
 					className='font-extrabold text-[32px] w-[70%]'
-					style={{ lineHeight: '40px' }}
-				>
+					style={{ lineHeight: '40px' }}>
 					Make connects with explora
 				</h1>
 				<p className='font-light text-[16px] mt-[10px] text-[#888]'>

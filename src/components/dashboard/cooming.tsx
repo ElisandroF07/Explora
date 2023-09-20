@@ -4,7 +4,6 @@ import Link from 'next/link';
 export default function Cooming() {
 	return (
 		<div className='w-full'>
-		
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
 				width='751.11894'

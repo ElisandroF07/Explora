@@ -4,14 +4,12 @@ export default function Card4() {
 	return (
 		<div className='card w-full h-full flex flex-col items-center justify-center relative'>
 			<svg
-			className='w-[80%] mb-[60%]'
+				className='w-[80%] mb-[60%]'
 				xmlns='http://www.w3.org/2000/svg'
 				data-name='Layer 1'
 				width='889.07556'
 				height='459.37952'
-				viewBox='0 0 889.07556 459.37952'
-				
-			>
+				viewBox='0 0 889.07556 459.37952'>
 				<title>welcome_cats</title>
 				<ellipse
 					cx='444.53778'
@@ -70,7 +68,12 @@ export default function Card4() {
 					transform='translate(-155.46222 -220.31024)'
 					fill='#e6e6e6'
 				/>
-				<circle cx='679.75342' cy='119.65771' r='9.2271' fill='#e6e6e6' />
+				<circle
+					cx='679.75342'
+					cy='119.65771'
+					r='9.2271'
+					fill='#e6e6e6'
+				/>
 				<ellipse
 					cx='679.75342'
 					cy='115.04416'
@@ -97,8 +100,18 @@ export default function Card4() {
 					transform='translate(-155.46222 -220.31024)'
 					fill='#6c63ff'
 				/>
-				<circle cx='667.45062' cy='109.66168' r='2.30677' fill='#e6e6e6' />
-				<circle cx='692.05622' cy='109.66168' r='2.30677' fill='#e6e6e6' />
+				<circle
+					cx='667.45062'
+					cy='109.66168'
+					r='2.30677'
+					fill='#e6e6e6'
+				/>
+				<circle
+					cx='692.05622'
+					cy='109.66168'
+					r='2.30677'
+					fill='#e6e6e6'
+				/>
 				<path
 					d='M388.8876,463.362c.56134.0077,1.12264.01539,1.69164.01539s1.1303-.00769,1.69164-.01539c29.75741-.67666,51.32574-19.26926,45.83561-38.77688l-13.387-47.58877L421.33624,364.955l-59.97615,1.02264-3.64469,11.77994-14.34817,46.36621C337.29275,443.739,358.86109,462.68533,388.8876,463.362Z'
 					transform='translate(-155.46222 -220.31024)'
@@ -149,7 +162,12 @@ export default function Card4() {
 					transform='translate(-155.46222 -220.31024)'
 					fill='#e6e6e6'
 				/>
-				<circle cx='235.11702' cy='99.27819' r='9.2271' fill='#e6e6e6' />
+				<circle
+					cx='235.11702'
+					cy='99.27819'
+					r='9.2271'
+					fill='#e6e6e6'
+				/>
 				<ellipse
 					cx='235.11702'
 					cy='94.66464'
@@ -216,19 +234,53 @@ export default function Card4() {
 					points='717.488 249.705 717.488 253.083 677.876 292.695 639.133 253.953 639.133 249.247 624.47 249.247 624.47 395.875 639.133 395.875 639.133 274.689 677.794 313.35 677.883 313.261 677.964 313.342 717.488 273.819 717.488 396.333 732.15 396.333 732.15 249.705 717.488 249.705'
 					fill='#3f3d56'
 				/>
-				<circle cx='335.07556' cy='150.37952' r='9' fill='#6c63ff' />
-				<circle cx='113.07556' cy='250.37952' r='9' fill='#6c63ff' />
-				<circle cx='291.07556' cy='450.37952' r='9' fill='#6c63ff' />
-				<circle cx='517.07556' cy='177.37952' r='9' fill='#6c63ff' />
-				<circle cx='782.07556' cy='442.37952' r='9' fill='#6c63ff' />
-				<circle cx='791.07556' cy='206.37952' r='9' fill='#6c63ff' />
-				<circle cx='677.07556' cy='368.37952' r='9' fill='#6c63ff' />
+				<circle
+					cx='335.07556'
+					cy='150.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='113.07556'
+					cy='250.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='291.07556'
+					cy='450.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='517.07556'
+					cy='177.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='782.07556'
+					cy='442.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='791.07556'
+					cy='206.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
+				<circle
+					cx='677.07556'
+					cy='368.37952'
+					r='9'
+					fill='#6c63ff'
+				/>
 			</svg>
 			<div className=' p-[20px] absolute bottom-[10px]'>
 				<h1
 					className='font-black text-[32px] w-[70%]'
-					style={{ lineHeight: '40px' }}
-				>
+					style={{ lineHeight: '40px' }}>
 					Let's Get Started
 				</h1>
 				<p className='font-light text-[16px] mt-[10px] text-[#5a5a5a] text-[13px]'>
@@ -241,7 +293,9 @@ export default function Card4() {
 				</Link>
 				<p className='w-full text-center mt-[10px] text-[13px]'>
 					Already have an account?{' '}
-					<Link href='/signIn' className='font-semibold'>
+					<Link
+						href='/signIn'
+						className='font-semibold'>
 						Login
 					</Link>
 				</p>

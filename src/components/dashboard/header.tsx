@@ -1,13 +1,15 @@
+"use client"
+
 import React from 'react';
 import Image from 'next/image';
+import useUserStore from '@/contexts/stores/userStore';
 
-interface IProps {
-	pictureUrl: string;
-	firstName: string;
-	lastName: string;
-}
+export default function Header() {
 
-export default function Header(props: IProps) {
+	const firstName = useUserStore((state) => state.firstName);
+	const lastName = useUserStore((state) => state.lastName);
+	const pictureUrl = useUserStore((state) => state.pictureUrl);
+
 	return (
 		<div className='w-full flex items-center justify-between'>
 			<div>
@@ -17,11 +19,11 @@ export default function Header(props: IProps) {
 					Wellcome! 👋
 				</h1>
 				<p className='font-light text-[14px] mt-[20px] text-[#767676]'>
-					Wellcome {props.firstName || 'Unknow'} {props.lastName || 'User'}
+					Wellcome {firstName || 'Unknow'} {lastName || 'User'}
 				</p>
 			</div>
 			<Image
-				src={props.pictureUrl}
+				src={pictureUrl}
 				alt='picture'
 				width={40}
 				height={40}

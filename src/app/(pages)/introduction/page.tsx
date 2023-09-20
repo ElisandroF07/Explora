@@ -1,19 +1,18 @@
 'use client';
 
-import 'swiper/css';
-import 'swiper/css/bundle';
-import { FaAngleRight } from 'react-icons/fa6';
-import Card1 from '@/components/introduction/cards/card1';
-import Card2 from '@/components/introduction/cards/card2';
-import Card3 from '@/components/introduction/cards/card3';
-import Card4 from '@/components/introduction/cards/card4';
+import Card1 from '@/components/introduction/card1';
+import Card2 from '@/components/introduction/card2';
+import Card3 from '@/components/introduction/card3';
+import Card4 from '@/components/introduction/card4';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/bundle';
 
 export default function Introduction() {
 	return (
 		<main className='bg-[var(--background-body-introduction)] text-[var(--foreground-introduction)] w-full h-full '>
-			<section className='w-full h-full'>
+			<div className='w-full h-full'>
 				<Swiper
 					className='w-full h-full'
 					pagination={{
@@ -35,8 +34,7 @@ export default function Introduction() {
 							navigation!.style.display = 'initial';
 						}
 					}}
-					modules={[Pagination, Navigation]}
-				>
+					modules={[Pagination, Navigation]}>
 					<SwiperSlide>
 						<Card1 />
 					</SwiperSlide>
@@ -50,7 +48,7 @@ export default function Introduction() {
 						<Card4 />
 					</SwiperSlide>
 				</Swiper>
-			</section>
+			</div>
 		</main>
 	);
 }

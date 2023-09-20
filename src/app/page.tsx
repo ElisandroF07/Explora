@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 export default function Home() {
 	useEffect(() => {
-		let linkToIntroduction = document.getElementById('linkToIntroduction')
+		let linkToIntroduction = document.getElementById('linkToIntroduction');
 		setTimeout(() => {
-			linkToIntroduction?.click()
+			linkToIntroduction?.click();
 		}, 2000);
 	}, []);
 
@@ -408,7 +408,10 @@ export default function Home() {
 						/>
 					</svg>
 				</div>
-				<Link href='/introduction' className='opacity-0' id='linkToIntroduction'></Link>
+				<Link
+					href='/introduction'
+					className='opacity-0'
+					id='linkToIntroduction'></Link>
 			</div>
 		</main>
 	);
