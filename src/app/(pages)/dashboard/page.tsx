@@ -1,5 +1,6 @@
 import Header from '@/components/dashboard/header';
 import Cooming from '@/components/dashboard/cooming';
+import '@/styles/cardMentor.css'
 
 export default function Dashboard() {
 	

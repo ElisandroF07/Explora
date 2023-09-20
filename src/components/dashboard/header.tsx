@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import useUserStore from '@/contexts/stores/userStore';
+import { FaRegBell, FaRegBookmark } from 'react-icons/fa6';
 
 export default function Header() {
 	const firstName = useUserStore((state) => state.firstName);
@@ -10,18 +11,9 @@ export default function Header() {
 	const pictureUrl = useUserStore((state) => state.pictureUrl);
 
 	return (
-		<div className='w-full flex items-center justify-between'>
-			<div>
-				<h1
-					className='font-bold text-[24px] mt-[20px]'
-					style={{ lineHeight: '0px' }}>
-					Dashboard
-				</h1>
-				<p className='font-light text-[14px] mt-[20px] text-[#767676]'>
-					Wellcome {firstName || 'Unknow'} {lastName || 'User'}
-				</p>
-			</div>
-			{pictureUrl && (
+		<div className='w-full flex  items-center justify-between'>
+			<div className='flex'>
+				{pictureUrl && (
 				<Image
 					src={pictureUrl}
 					alt='picture'
@@ -30,6 +22,21 @@ export default function Header() {
 					className='rounded-full'
 				/>
 			)}
+				<div>
+					<p className='font-light text-[14px] text-[#767676]'>
+						Good Evening 👋
+					</p>
+					<h1
+						className='font-bold text-[20px] mt-[15px]'
+						style={{ lineHeight: '0px' }}>
+						{firstName || 'Unknow'} {lastName || 'User'}
+					</h1>
+				</div>
+			</div>
+			<div className='flex gap-4'>
+				<FaRegBell className='text-[#767676] w-[20px] h-[20px]' />
+				<FaRegBookmark className='text-[#767676] w-[20px] h-[20px]' />
+			</div>
 		</div>
 	);
 }
