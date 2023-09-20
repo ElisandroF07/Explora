@@ -35,7 +35,7 @@ export default function Cooming() {
 			<div className='w-full'>
 				<div className='w-full h-[20vh] bg-blue-100 rounded-lg'></div>
 			</div>
-			<div className='w-full mt-[20px]'>
+			<div className='w-full mt-[30px]'>
 				<h1
 					className='font-bold text-[16px] mb-[10px]'>
 					Top Mentors

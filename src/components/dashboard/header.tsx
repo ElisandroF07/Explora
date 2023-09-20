@@ -12,7 +12,7 @@ export default function Header() {
 
 	return (
 		<div className='w-full flex  items-center justify-between'>
-			<div className='flex'>
+			<div className='flex mr-4'>
 				{pictureUrl && (
 				<Image
 					src={pictureUrl}
@@ -27,7 +27,7 @@ export default function Header() {
 						Good Evening 👋
 					</p>
 					<h1
-						className='font-bold text-[20px] mt-[15px]'
+						className='font-bold text-[20px] mt-[10px]'
 						style={{ lineHeight: '0px' }}>
 						{firstName || 'Unknow'} {lastName || 'User'}
 					</h1>
