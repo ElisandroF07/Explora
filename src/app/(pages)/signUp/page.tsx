@@ -7,7 +7,7 @@ import SignUpForm from '@/components/signUp/signUpForm';
 import { json } from 'stream/consumers';
 
 const CLIENT_ID =
-	'943429597038-cie2777pr6rdnhnu59jc8rocpq1i1ai6.apps.googleusercontent.com';
+	'389948282812-dql26j7qvn78161n76ncn15tp8r0n0vb.apps.googleusercontent.com';
 
 declare global {
 	interface Window {
