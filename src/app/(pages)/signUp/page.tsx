@@ -1,11 +1,13 @@
-"use client"
+'use client';
 
 import { useEffect } from 'react';
 import useUserStore from '@/contexts/stores/userStore';
 import FormHeader from '@/components/shared/formHeader';
 import SignUpForm from '@/components/signUp/signUpForm';
+import { json } from 'stream/consumers';
 
-const CLIENT_ID ='389948282812-dql26j7qvn78161n76ncn15tp8r0n0vb.apps.googleusercontent.com';
+const CLIENT_ID =
+	'943429597038-cie2777pr6rdnhnu59jc8rocpq1i1ai6.apps.googleusercontent.com';
 
 declare global {
 	interface Window {
@@ -13,8 +15,11 @@ declare global {
 	}
 }
 
-export default function SignUp() {
+type userDataType = {
+	[key: string]: string
+}
 
+export default function SignUp() {
 	const firstName = useUserStore((state) => state.firstName);
 	const updateFirstName = useUserStore((state) => state.updateFirstName);
 
@@ -46,6 +51,17 @@ export default function SignUp() {
 					updateEmail(googleUser.getBasicProfile().getEmail());
 					updatePictureUrl(googleUser.getBasicProfile().getImageUrl());
 					updateGoogleId(googleUser.getBasicProfile().getId());
+
+					const currentUser:userDataType = {
+						firstName: googleUser.getBasicProfile().getGivenName(),
+						lastName: googleUser.getBasicProfile().getFamilyName(),
+						pictureUrl: googleUser.getBasicProfile().getImageUrl(),
+						email: googleUser.getBasicProfile().getEmail(),
+						googleId: googleUser.getBasicProfile().getId()
+					}
+
+					localStorage.setItem('currentUser', JSON.stringify(currentUser))
+					
 					let linkToDashboard = document.getElementById(
 						'linkToDashboard'
 					) as HTMLLinkElement;
@@ -60,8 +76,11 @@ export default function SignUp() {
 
 	return (
 		<main className='bg-[var(--background-body-introduction)] text-[var(--foreground-introduction)] w-full h-full p-[15px]'>
-			<FormHeader title='Create Account' subtitle='Connect with your friends today!'/>
-			<SignUpForm/>
+			<FormHeader
+				title='Create Account'
+				subtitle='Connect with your friends today!'
+			/>
+			<SignUpForm />
 			<script
 				src='https://apis.google.com/js/api:client.js'
 				async

@@ -2,13 +2,17 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function CardPopularCourses() {
+interface IProps {
+	courseTitle: string;
+}
+
+export default function CardPopularCourses(props: IProps) {
 	return (
 		<div>
 			<Link
 				href='/'
-				className='flex flex-col items-center justify-center gap-2 px-3 py-1 w-max rounded-lg bg-blue-100'>
-				<h1 className='font-bold text-blue-400 text-[14px] w-max'>Adobe Photoshop</h1>
+				className='flex flex-col items-center justify-center px-3 py-1 w-max bg-blue-100 opacity-80 rounded-lg'>
+				<h1 className='text-blue-600 text-[13px] w-max'>{props.courseTitle}</h1>
 			</Link>
 		</div>
 	);

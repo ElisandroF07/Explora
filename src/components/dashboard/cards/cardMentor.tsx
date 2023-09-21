@@ -3,19 +3,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Dyson from '@/components/dashboard/cards/blurry_background.jpg';
 
-export default function CardMentor() {
+interface IProps {
+	image: string;
+	name: string;
+}
+
+export default function CardMentor(props: IProps) {
 	return (
 		<div>
 			<Link
 				href='/'
 				className='flex flex-col items-center justify-center gap-2'>
 				<Image
-					src={Dyson}
+					src={props.image}
 					alt='picture'
 					width={60}
+					height={60}
 					className='rounded-full h-[60px]'
 				/>
-				<h1 className='font-bold text-[14px]'>Mentor</h1>
+				<h1 className=' text-[13px]'>{props.name}</h1>
 			</Link>
 		</div>
 	);
